@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Colors 
+
+$bg-header: #2E3A46;
+$bg-main: #1E2D3B;
+$text-gray: #78736E;
+
+// Dimensions
+$height-header: 80px;
+$height-main: calc(100vh - 80px);
+

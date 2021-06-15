@@ -1,28 +1,52 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+      <Header 
+      :genres="genres" 
+      @changeGenre="passGenre"/>
+      <Main @ready="genresOption" />
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header"
+import Main from "./components/Main"
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: "App",
+    data: function() {
+      return {
+        genres: []
+      }
+      
+    },
+    methods: {
+      genresOption: function(array) {
+        this.genres = array;
+      },
+      passGenre: function(genrePass) {
+        console.log("genrePass: " + genrePass);
+      }
+    },
+    components: {
+      Header,
+      Main
+    }
+      
+
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "./style/General";
+    #app {
+      color: white;
+    }
+    Header {
+      height: $height-header;
+      background-color: $bg-header;
+    }
+    Main {
+      min-height: $height-main;
+      background-color: $bg-main;
+    }
 </style>
